@@ -7,12 +7,22 @@ using UnityEngine;
 public class TopDownCharacterMover : MonoBehaviour
 {
     private InputHandler _input;
-
+    private Rigidbody rb;
+    private GroundCheck _ground;
+    [Header("Rotate")]
     [SerializeField]
     private bool RotateTowardMouse;
-
+    [Header("Movement")]
     [SerializeField]
     private float MovementSpeed;
+    [Header("Jump")]
+    [SerializeField]
+    private float JumpSpeed;
+    [SerializeField]
+    private float FallSpeed;
+    [SerializeField]
+    private float MaxFallSpeed;
+
     [SerializeField]
     //I set to zero because the rotation will probably be made with the animation
     //But this is depending on the assets that we will use
@@ -24,15 +34,32 @@ public class TopDownCharacterMover : MonoBehaviour
     private void Awake()
     {
         _input = GetComponent<InputHandler>();
+        rb = GetComponent<Rigidbody>();
+        _ground = GetComponentInChildren<GroundCheck>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
-        var movementVector = MoveTowardTarget(targetVector);
-
+        //Movement
+        Vector3 targetVector = new Vector3(_input.MovementInputVector.x, 0, _input.MovementInputVector.y);
+        Vector3 movementVector = MoveTowardTarget(targetVector);
+        //Jump
+        if (_ground.isOnGround)
+        {
+            if (_input.JumpButton)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, JumpSpeed, rb.velocity.z);
+            }
+        }
+        else
+        {
+            if (rb.velocity.y > -MaxFallSpeed)
+            {
+                rb.velocity -= new Vector3(0, FallSpeed, 0);
+            }
+        }
+        //Rotation
         if (!RotateTowardMouse)
         {
             RotateTowardMovementVector(movementVector);
@@ -50,7 +77,7 @@ public class TopDownCharacterMover : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f))
         {
-            var target = hitInfo.point;
+            Vector3 target = hitInfo.point;
             target.y = transform.position.y;
             transform.LookAt(target);
         }
@@ -58,9 +85,9 @@ public class TopDownCharacterMover : MonoBehaviour
 
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
-        var speed = MovementSpeed * Time.deltaTime;
+        float speed = MovementSpeed * Time.deltaTime;
         targetVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * targetVector;
-        var targetPosition = transform.position + targetVector * speed;
+        Vector3 targetPosition = transform.position + targetVector * speed;
         transform.position = targetPosition;
         return targetVector;
     }
@@ -68,7 +95,7 @@ public class TopDownCharacterMover : MonoBehaviour
     private void RotateTowardMovementVector(Vector3 movementDirection)
     {
         if (movementDirection.magnitude == 0) { return; }
-        var rotation = Quaternion.LookRotation(movementDirection);
+        Quaternion rotation = Quaternion.LookRotation(movementDirection);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, RotationSpeed);
     }
 }
