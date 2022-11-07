@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(InputHandler))]
@@ -18,9 +15,14 @@ public class TopDownCharacterMover : MonoBehaviour
     private float RotationSpeed;
 
     [Header("Movement")]
+    private float _movementSpeed;
     [SerializeField]
-    private float MovementSpeed;
-
+    private float _defaultMovementSpeed;
+    [SerializeField]
+    private float _glideMovementSpeed;
+    [SerializeField]
+    private float _flyMovementSpeed;
+    
     [Header("Jump")]
     private float _jumpSpeed;
     [SerializeField]
@@ -29,6 +31,7 @@ public class TopDownCharacterMover : MonoBehaviour
     private float _highJumpSpeed;
     [SerializeField] 
     private float _defaultFallSpeed = 0.2f;
+    [SerializeField] private float _fallSpeedFlight = 0.05f; 
     [SerializeField]
     private float MaxFallSpeed;    
     private float _fallSpeed;
@@ -54,7 +57,8 @@ public class TopDownCharacterMover : MonoBehaviour
     private void Start()
     {
         _fallSpeed = _defaultFallSpeed;
-        _jumpSpeed = _defaultJumpSpeed; 
+        _jumpSpeed = _defaultJumpSpeed;
+        _movementSpeed = _defaultMovementSpeed; 
     }
 
     void Update()
@@ -62,6 +66,7 @@ public class TopDownCharacterMover : MonoBehaviour
         //Movement
         Vector3 targetVector = new Vector3(_input.MovementInputVector.x, 0, _input.MovementInputVector.y);
         Vector3 movementVector = MoveTowardTarget(targetVector);
+        
         //Jump
         if (_ground.isOnGround)
         {
@@ -105,7 +110,7 @@ public class TopDownCharacterMover : MonoBehaviour
 
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
-        float speed = MovementSpeed * Time.deltaTime;
+        float speed = _movementSpeed * Time.deltaTime;
         targetVector = (Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * targetVector).normalized;
         Vector3 targetPosition = transform.position + targetVector * speed;
         transform.position = targetPosition;
@@ -122,5 +127,20 @@ public class TopDownCharacterMover : MonoBehaviour
     public void UnlockHighJump()
     {
         _jumpSpeed = _highJumpSpeed; 
+    }
+
+    public void UpdateMovementSpeedPlayer(bool CanGlide, bool CanFly)
+    {
+        if (CanFly)
+        {
+            _movementSpeed = _flyMovementSpeed;
+            return; 
+        }
+
+        if (CanGlide)
+        {
+            _movementSpeed = _glideMovementSpeed;
+            return; 
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class GeneralController : MonoBehaviour
@@ -14,9 +15,10 @@ public class GeneralController : MonoBehaviour
     [SerializeField] private int _neededFeathersToHighJump = 1;
     
     [Header("Flight mechanic")]
-    [SerializeField] private int _neededFeathersToFly = 4; 
-    
-    [Header("Glide mechanic")]
+    [SerializeField] private int _neededFeathersToFly = 4;
+
+    [Header("Glide mechanic")] [SerializeField]
+    private GlideController _glideController; 
     [SerializeField] private int _neededFeathersToGlide = 2;
 
     // Visual feathers variables
@@ -60,11 +62,19 @@ public class GeneralController : MonoBehaviour
             CanHighJump = true;
             _topDownCharacterMover.UnlockHighJump();
         }
-        
+
         if (_numberFeathers >= _neededFeathersToGlide && !CanGlide)
-            CanGlide = true; 
+        {
+            CanGlide = true;
+            _topDownCharacterMover.UpdateMovementSpeedPlayer(CanGlide, CanFly);
+        }
         
         if (_numberFeathers >= _neededFeathersToFly && !CanFly)
-            CanFly = true; 
+        {
+            CanFly = true;
+            _topDownCharacterMover.UpdateMovementSpeedPlayer(CanGlide, CanFly); 
+            _glideController.UpdateCounterFall();
+        }
+            
     }
 }

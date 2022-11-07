@@ -161,10 +161,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotateTowardMouse: 0
   RotationSpeed: 5
-  MovementSpeed: 8
+  _defaultMovementSpeed: 6
+  _glideMovementSpeed: 8
+  _flyMovementSpeed: 10
   _defaultJumpSpeed: 21
   _highJumpSpeed: 32
   _defaultFallSpeed: 0.2
+  _fallSpeedFlight: 0.05
   MaxFallSpeed: 5
   Camera: {fileID: 0}
 --- !u!114 &7912260498954748947
@@ -196,6 +199,8 @@ MonoBehaviour:
   _movementController: {fileID: 7912260498954748950}
   _generalController: {fileID: 7289994646118221679}
   _counterSpeedFall: 0.16
+  _counterSpeedFallFlight: 0.18
+  _flyUpSpeed: 20
 --- !u!114 &7289994646118221679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +216,7 @@ MonoBehaviour:
   _topDownCharacterMover: {fileID: 7912260498954748950}
   _neededFeathersToHighJump: 1
   _neededFeathersToFly: 4
+  _glideController: {fileID: 1404675714700140038}
   _neededFeathersToGlide: 2
   _crowRenderer: {fileID: 5045390638455018266}
 --- !u!1001 &7912260499428203684
