@@ -16,13 +16,26 @@ public class TopDownCharacterMover : MonoBehaviour
     [SerializeField]
     private float MovementSpeed;
     [Header("Jump")]
+    
+
+    private float _jumpSpeed;
     [SerializeField]
-    private float JumpSpeed;
+    private float _defaultJumpSpeed;
     [SerializeField]
-    private float FallSpeed;
+    private float _highJumpSpeed;
+    
+    [SerializeField] 
+    private float _defaultFallSpeed = 0.2f;
     [SerializeField]
     private float MaxFallSpeed;
+    
+    private float _fallSpeed;
 
+    public float FallSpeed => _fallSpeed;
+    public float DefaultSpeed => _defaultFallSpeed;
+    public bool IsOnGround => _ground.isOnGround; 
+    
+    
     [SerializeField]
     //I set to zero because the rotation will probably be made with the animation
     //But this is depending on the assets that we will use
@@ -38,7 +51,12 @@ public class TopDownCharacterMover : MonoBehaviour
         _ground = GetComponentInChildren<GroundCheck>();
     }
 
-    // Update is called once per frame
+    private void Start()
+    {
+        _fallSpeed = _defaultFallSpeed;
+        _jumpSpeed = _defaultJumpSpeed; 
+    }
+
     void Update()
     {
         //Movement
@@ -49,14 +67,14 @@ public class TopDownCharacterMover : MonoBehaviour
         {
             if (_input.JumpButton)
             {
-                rb.velocity = new Vector3(rb.velocity.x, JumpSpeed, rb.velocity.z);
+                rb.velocity = new Vector3(rb.velocity.x, _jumpSpeed, rb.velocity.z);
             }
         }
         else
         {
             if (rb.velocity.y > -MaxFallSpeed)
             {
-                rb.velocity -= new Vector3(0, FallSpeed, 0);
+                rb.velocity -= new Vector3(0, _fallSpeed, 0);
             }
         }
         //Rotation
@@ -97,5 +115,10 @@ public class TopDownCharacterMover : MonoBehaviour
         if (movementDirection.magnitude == 0) { return; }
         Quaternion rotation = Quaternion.LookRotation(movementDirection);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, RotationSpeed);
+    }
+
+    public void UnlockHighJump()
+    {
+        _jumpSpeed = _highJumpSpeed; 
     }
 }

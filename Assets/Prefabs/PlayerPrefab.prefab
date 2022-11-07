@@ -92,6 +92,8 @@ GameObject:
   - component: {fileID: 7912260498954748949}
   - component: {fileID: 7912260498954748950}
   - component: {fileID: 7912260498954748947}
+  - component: {fileID: 1404675714700140038}
+  - component: {fileID: 7289994646118221679}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -158,9 +160,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateTowardMouse: 0
-  MovementSpeed: 4
-  JumpSpeed: 10
-  FallSpeed: 0.2
+  MovementSpeed: 8
+  _defaultJumpSpeed: 12
+  _highJumpSpeed: 25
+  _defaultFallSpeed: 0.2
   MaxFallSpeed: 5
   RotationSpeed: 0
   Camera: {fileID: 0}
@@ -177,6 +180,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpButton: 0
+--- !u!114 &1404675714700140038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912260498954748948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2543a4d46f74493933c8472881e5ece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 7912260498954748949}
+  _movementController: {fileID: 7912260498954748950}
+  _generalController: {fileID: 7289994646118221679}
+  _counterSpeedFall: 0.16
+--- !u!114 &7289994646118221679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912260498954748948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf552dadceb546feaa81844749d1b179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _topDownCharacterMover: {fileID: 7912260498954748950}
+  _neededFeathersToHighJump: 1
+  _neededFeathersToFly: 4
+  _neededFeathersToGlide: 2
+  _crowRenderer: {fileID: 5045390638455018266}
 --- !u!1001 &7912260499428203684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,6 +270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa293ef064f2ae4383ebcabff01c093, type: 3}
+--- !u!1 &5045390638455018266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3155100348800339902, guid: 1fa293ef064f2ae4383ebcabff01c093, type: 3}
+  m_PrefabInstance: {fileID: 7912260499428203684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5546163475600403552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2394245165782773956, guid: 1fa293ef064f2ae4383ebcabff01c093, type: 3}
