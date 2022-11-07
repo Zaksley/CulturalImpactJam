@@ -8,27 +8,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: door
-    second: {fileID: 2100000, guid: ec8e61b77b051a144a42622ce86d365c, type: 2}
+    second: {fileID: 2100000, guid: 71c2466debd03054f9406636a3503602, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: roof
-    second: {fileID: 2100000, guid: 36f4308607094e34295d7c6df902c5d4, type: 2}
+    second: {fileID: 2100000, guid: b4d3ee8f9657df34b9e12a947e6d04de, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: strawWindow
-    second: {fileID: 2100000, guid: 117d10a67b8f1654eba39a1acb1a69f6, type: 2}
+    second: {fileID: 2100000, guid: 004a4c5fc41fb744193ead974c23455e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: wall
-    second: {fileID: 2100000, guid: 64ca9118d6c64cd4185c1245b6fe53a6, type: 2}
+    second: {fileID: 2100000, guid: 01484173cd69ac348935f5cfd6ad0e3f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: woodenSupport
-    second: {fileID: 2100000, guid: 630cb942b6ccd2841bc2d76da42688a5, type: 2}
+    second: {fileID: 2100000, guid: 4a444d9f1b6c1fc4f8dffae0b1a46bac, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

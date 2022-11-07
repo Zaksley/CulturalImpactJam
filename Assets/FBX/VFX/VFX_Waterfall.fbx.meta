@@ -1,68 +1,9 @@
 fileFormatVersion: 2
-guid: 7e2d9d30ee332a44fbcac4e39a023d5a
+guid: 22615d8f5499cf0479e93463b78585ff
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable:
-  - first:
-      74: -245054683497226084
-    second: Rock_A_1|cube_NewUVs1Action
-  - first:
-      74: 1357450128593272682
-    second: Rock_A_1|cube_NewUVs1Action.001
-  - first:
-      74: -1078233079546120975
-    second: Rock_A_1|cube_NewUVs2Action
-  - first:
-      74: -1693207936826484369
-    second: Rock_A_1|cube_NewUVs4Action
-  - first:
-      74: -2143610132227329862
-    second: Rock_A_1|cube_NewUVs5Action
-  - first:
-      74: 3807103337208230384
-    second: Rock_A_1|cube_NewUVsAction
-  - first:
-      74: 6218496331367210403
-    second: Rock_A_2|cube_NewUVs1Action
-  - first:
-      74: 7835328666685041827
-    second: Rock_A_2|cube_NewUVs1Action.001
-  - first:
-      74: -3860291574419965634
-    second: Rock_A_2|cube_NewUVs2Action
-  - first:
-      74: 6382462532648412857
-    second: Rock_A_2|cube_NewUVs4Action
-  - first:
-      74: 3520009495585330262
-    second: Rock_A_2|cube_NewUVs5Action
-  - first:
-      74: -4089268262844938119
-    second: Rock_A_2|cube_NewUVsAction
-  - first:
-      74: 827584545784218824
-    second: Rock_A_3|cube_NewUVs1Action
-  - first:
-      74: -598568088958693706
-    second: Rock_A_3|cube_NewUVs1Action.001
-  - first:
-      74: -5014616415455468259
-    second: Rock_A_3|cube_NewUVs2Action
-  - first:
-      74: -6682522268533222284
-    second: Rock_A_3|cube_NewUVs4Action
-  - first:
-      74: -7131138646928691003
-    second: Rock_A_3|cube_NewUVs5Action
-  - first:
-      74: -4677884620885512753
-    second: Rock_A_3|cube_NewUVsAction
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mat_ColorPalette
-    second: {fileID: 2100000, guid: 9e068c439f06f7846b0be0a39da8a868, type: 2}
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
