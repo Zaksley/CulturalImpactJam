@@ -12,37 +12,35 @@ public class TopDownCharacterMover : MonoBehaviour
     [Header("Rotate")]
     [SerializeField]
     private bool RotateTowardMouse;
-    [Header("Movement")]
-    [SerializeField]
-    private float MovementSpeed;
-    [Header("Jump")]
-    
-
-    private float _jumpSpeed;
-    [SerializeField]
-    private float _defaultJumpSpeed;
-    [SerializeField]
-    private float _highJumpSpeed;
-    
-    [SerializeField] 
-    private float _defaultFallSpeed = 0.2f;
-    [SerializeField]
-    private float MaxFallSpeed;
-    
-    private float _fallSpeed;
-
-    public float FallSpeed => _fallSpeed;
-    public float DefaultSpeed => _defaultFallSpeed;
-    public bool IsOnGround => _ground.isOnGround; 
-    
-    
     [SerializeField]
     //I set to zero because the rotation will probably be made with the animation
     //But this is depending on the assets that we will use
     private float RotationSpeed;
 
+    [Header("Movement")]
+    [SerializeField]
+    private float MovementSpeed;
+
+    [Header("Jump")]
+    [SerializeField]
+    private float _jumpSpeed;
+    [SerializeField]
+    private float _defaultJumpSpeed;
+    [SerializeField]
+    private float _highJumpSpeed;
+    [SerializeField] 
+    private float _defaultFallSpeed = 0.2f;
+    [SerializeField]
+    private float MaxFallSpeed;    
+    private float _fallSpeed;
+
+    [Header("Camera")]
     [SerializeField]
     private Camera Camera;
+
+    public float FallSpeed => _fallSpeed;
+    public float DefaultSpeed => _defaultFallSpeed;
+    public bool IsOnGround => _ground.isOnGround;
 
     private void Awake()
     {
@@ -104,7 +102,7 @@ public class TopDownCharacterMover : MonoBehaviour
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
         float speed = MovementSpeed * Time.deltaTime;
-        targetVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * targetVector;
+        targetVector = (Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * targetVector).normalized;
         Vector3 targetPosition = transform.position + targetVector * speed;
         transform.position = targetPosition;
         return targetVector;
