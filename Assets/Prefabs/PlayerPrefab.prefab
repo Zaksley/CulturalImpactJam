@@ -160,11 +160,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateTowardMouse: 0
-  RotationSpeed: 0
+  RotationSpeed: 5
   MovementSpeed: 8
-  _jumpSpeed: 0
-  _defaultJumpSpeed: 12
-  _highJumpSpeed: 25
+  _defaultJumpSpeed: 21
+  _highJumpSpeed: 32
   _defaultFallSpeed: 0.2
   MaxFallSpeed: 5
   Camera: {fileID: 0}

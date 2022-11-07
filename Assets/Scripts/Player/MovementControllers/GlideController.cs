@@ -11,7 +11,7 @@ public class GlideController : MonoBehaviour
 
     private void Update()
     {
-        if (_movementController.IsOnGround || !_generalController.CanGlide)
+        if (_movementController.IsOnGround || !_generalController.CanGlide || _movementController.IsRising)
             return; 
         
         if (Input.GetKey(KeyCode.Space))

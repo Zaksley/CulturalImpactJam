@@ -22,7 +22,6 @@ public class TopDownCharacterMover : MonoBehaviour
     private float MovementSpeed;
 
     [Header("Jump")]
-    [SerializeField]
     private float _jumpSpeed;
     [SerializeField]
     private float _defaultJumpSpeed;
@@ -34,6 +33,8 @@ public class TopDownCharacterMover : MonoBehaviour
     private float MaxFallSpeed;    
     private float _fallSpeed;
 
+    private bool _isRising = false; 
+    
     [Header("Camera")]
     [SerializeField]
     private Camera Camera;
@@ -41,6 +42,7 @@ public class TopDownCharacterMover : MonoBehaviour
     public float FallSpeed => _fallSpeed;
     public float DefaultSpeed => _defaultFallSpeed;
     public bool IsOnGround => _ground.isOnGround;
+    public bool IsRising => _isRising; 
 
     private void Awake()
     {
@@ -65,6 +67,7 @@ public class TopDownCharacterMover : MonoBehaviour
         {
             if (_input.JumpButton)
             {
+                _isRising = true; 
                 rb.velocity = new Vector3(rb.velocity.x, _jumpSpeed, rb.velocity.z);
             }
         }
@@ -72,6 +75,7 @@ public class TopDownCharacterMover : MonoBehaviour
         {
             if (rb.velocity.y > -MaxFallSpeed)
             {
+                _isRising = false; 
                 rb.velocity -= new Vector3(0, _fallSpeed, 0);
             }
         }
