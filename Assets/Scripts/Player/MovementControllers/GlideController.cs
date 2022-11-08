@@ -15,10 +15,17 @@ public class GlideController : MonoBehaviour
     [Header("Fly speed")]
     [SerializeField] private float _flyUpSpeed = 5f;
     
+    public bool IsNormalFlying { get; private set; } = false;
+    public bool IsPlunging { get; private set; } = false; 
+    
     private void Update()
     {
         if (_movementController.IsOnGround || !_generalController.CanGlide)
+        {
+            IsNormalFlying = false;
+            IsPlunging = false; 
             return;
+        }
         
         _movementController.UpdateMovementSpeedPlayer(_generalController.CanGlide, _generalController.CanFly);
 
@@ -27,6 +34,8 @@ public class GlideController : MonoBehaviour
             if (!_movementController.IsRising)
             {
                 Glide();
+                IsNormalFlying = true; 
+                IsPlunging = false; 
             }
         }
 
@@ -35,16 +44,24 @@ public class GlideController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Fly(); 
+                IsNormalFlying = true; 
+                IsPlunging = false; 
             }
-
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                Plunge(); 
-            }
-            // Natural glide 
             else
             {
-                Glide(); 
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    Plunge();
+                    IsPlunging = true; 
+                    IsNormalFlying = false; 
+                }
+                // Natural glide 
+                else
+                {
+                    Glide(); 
+                    IsNormalFlying = true; 
+                    IsPlunging = false; 
+                }
             }
         }
     }

@@ -90,7 +90,7 @@ public class TopDownCharacterMover : MonoBehaviour
                 rb.velocity -= new Vector3(0, _fallSpeed, 0);
             }
         }
-        //Rotation
+
         if (!RotateTowardMouse)
         {
             RotateTowardMovementVector(movementVector);
@@ -99,7 +99,6 @@ public class TopDownCharacterMover : MonoBehaviour
         {
             RotateFromMouseVector();
         }
-
     }
 
     private void RotateFromMouseVector()
