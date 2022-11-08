@@ -202,7 +202,7 @@ MonoBehaviour:
   _generalController: {fileID: 7289994646118221679}
   _counterSpeedFall: 0.16
   _counterSpeedFallFlight: 0.18
-  _counterPlungeSpeedFall: 0.35
+  _counterPlungeSpeedFall: 0.3
   _flyUpSpeed: 20
 --- !u!114 &7289994646118221679
 MonoBehaviour:
