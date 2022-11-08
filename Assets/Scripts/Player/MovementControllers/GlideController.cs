@@ -41,7 +41,7 @@ public class GlideController : MonoBehaviour
 
         if (_generalController.CanFly)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift))
             {
                 Fly(); 
                 IsNormalFlying = true; 
@@ -49,6 +49,9 @@ public class GlideController : MonoBehaviour
             }
             else
             {
+                if (IsNormalFlying)
+                    ResetSpeed();
+                
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     Plunge();
@@ -58,6 +61,9 @@ public class GlideController : MonoBehaviour
                 // Natural glide 
                 else
                 {
+                    if (IsPlunging)
+                        ResetSpeed();
+                
                     Glide(); 
                     IsNormalFlying = true; 
                     IsPlunging = false; 
@@ -76,12 +82,17 @@ public class GlideController : MonoBehaviour
 
     private void Fly()
     {
-        _rb.velocity += new Vector3(0, _flyUpSpeed, 0);
+        _rb.velocity = new Vector3(0, _flyUpSpeed, 0);
     }
 
     private void Plunge()
     {
         _rb.velocity -= new Vector3(0, _counterPlungeSpeedFall, 0);
+    }
+
+    private void ResetSpeed()
+    {
+        _rb.velocity -= new Vector3(0, 0, 0);
     }
 
     public void UpdateCounterFall()
