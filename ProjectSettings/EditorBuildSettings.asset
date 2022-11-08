@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Individual Scenes/Joel_Scene.unity
+    guid: 46d73550e95b23944858f06c62e13011
   m_configObjects: {}
