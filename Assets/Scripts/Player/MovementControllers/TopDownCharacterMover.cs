@@ -70,6 +70,12 @@ public class TopDownCharacterMover : MonoBehaviour
         //Jump
         if (_ground.isOnGround)
         {
+            // If player is on ground, we maintain his speed
+            if (_movementSpeed != _defaultMovementSpeed)
+            {
+                _movementSpeed = _defaultMovementSpeed; 
+            }
+            
             if (_input.JumpButton)
             {
                 _isRising = true; 

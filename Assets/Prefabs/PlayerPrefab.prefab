@@ -161,9 +161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotateTowardMouse: 0
   RotationSpeed: 5
-  _defaultMovementSpeed: 6
-  _glideMovementSpeed: 8
-  _flyMovementSpeed: 10
+  _defaultMovementSpeed: 7.5
+  _glideMovementSpeed: 15
+  _flyMovementSpeed: 25
   _defaultJumpSpeed: 21
   _highJumpSpeed: 32
   _defaultFallSpeed: 0.2
@@ -200,6 +200,7 @@ MonoBehaviour:
   _generalController: {fileID: 7289994646118221679}
   _counterSpeedFall: 0.16
   _counterSpeedFallFlight: 0.18
+  _counterPlungeSpeedFall: 1
   _flyUpSpeed: 20
 --- !u!114 &7289994646118221679
 MonoBehaviour:

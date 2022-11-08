@@ -10,6 +10,7 @@ public class GlideController : MonoBehaviour
     [Header("Fall speed")]
     [SerializeField] private float _counterSpeedFall = 0.1f;
     [SerializeField] private float _counterSpeedFallFlight = 0.1f;
+    [SerializeField] private float _counterPlungeSpeedFall = 1f; 
     
     [Header("Fly speed")]
     [SerializeField] private float _flyUpSpeed = 5f;
@@ -18,8 +19,10 @@ public class GlideController : MonoBehaviour
     {
         if (_movementController.IsOnGround || !_generalController.CanGlide)
             return;
+        
+        _movementController.UpdateMovementSpeedPlayer(_generalController.CanGlide, _generalController.CanFly);
 
-        if (Input.GetKey(KeyCode.Space) || _generalController.CanFly)
+        if (Input.GetKey(KeyCode.Space) && _generalController.CanGlide && !_generalController.CanFly)
         {
             if (!_movementController.IsRising)
             {
@@ -27,9 +30,22 @@ public class GlideController : MonoBehaviour
             }
         }
 
-        if (_generalController.CanFly && Input.GetKeyDown(KeyCode.Space))
+        if (_generalController.CanFly)
         {
-            Fly(); 
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Fly(); 
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Plunge(); 
+            }
+            // Natural glide 
+            else
+            {
+                Glide(); 
+            }
         }
     }
 
@@ -44,6 +60,11 @@ public class GlideController : MonoBehaviour
     private void Fly()
     {
         _rb.velocity += new Vector3(0, _flyUpSpeed, 0);
+    }
+
+    private void Plunge()
+    {
+        _rb.velocity -= new Vector3(0, _counterPlungeSpeedFall, 0);
     }
 
     public void UpdateCounterFall()
