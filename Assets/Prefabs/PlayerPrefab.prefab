@@ -171,6 +171,7 @@ MonoBehaviour:
   _fallSpeedFlight: 0.05
   MaxFallSpeed: 5
   Camera: {fileID: 0}
+  _anim: {fileID: 7655828398298907188}
 --- !u!114 &7912260498954748947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,5 +305,10 @@ GameObject:
 --- !u!4 &5546163475600403552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2394245165782773956, guid: 1fa293ef064f2ae4383ebcabff01c093, type: 3}
+  m_PrefabInstance: {fileID: 7912260499428203684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7655828398298907188 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 572810775198015120, guid: 1fa293ef064f2ae4383ebcabff01c093, type: 3}
   m_PrefabInstance: {fileID: 7912260499428203684}
   m_PrefabAsset: {fileID: 0}

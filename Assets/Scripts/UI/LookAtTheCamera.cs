@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class LookAtTheCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Camera mainCamera;
+
+    private void Awake()
     {
-        
+        mainCamera = Camera.main;
+        this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation, mainCamera.transform.rotation, 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation, mainCamera.transform.rotation, 1);
     }
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 public class TopDownCharacterMover : MonoBehaviour
 {
     private InputHandler _input;
-    private Rigidbody rb;
+    private Rigidbody _rb;
     private GroundCheck _ground;
+
     [Header("Rotate")]
     [SerializeField]
     private bool RotateTowardMouse;
@@ -31,7 +32,8 @@ public class TopDownCharacterMover : MonoBehaviour
     private float _highJumpSpeed;
     [SerializeField] 
     private float _defaultFallSpeed = 0.2f;
-    [SerializeField] private float _fallSpeedFlight = 0.05f; 
+    [SerializeField] 
+    private float _fallSpeedFlight = 0.05f; 
     [SerializeField]
     private float MaxFallSpeed;    
     private float _fallSpeed;
@@ -42,6 +44,10 @@ public class TopDownCharacterMover : MonoBehaviour
     [SerializeField]
     private Camera Camera;
 
+    [Header("Animator")]
+    [SerializeField]
+    private Animator _anim;
+
     public float FallSpeed => _fallSpeed;
     public float DefaultSpeed => _defaultFallSpeed;
     public bool IsOnGround => _ground.isOnGround;
@@ -50,7 +56,7 @@ public class TopDownCharacterMover : MonoBehaviour
     private void Awake()
     {
         _input = GetComponent<InputHandler>();
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         _ground = GetComponentInChildren<GroundCheck>();
     }
 
@@ -65,6 +71,7 @@ public class TopDownCharacterMover : MonoBehaviour
     {
         //Movement
         Vector3 targetVector = new Vector3(_input.MovementInputVector.x, 0, _input.MovementInputVector.y);
+        _anim.SetFloat("Velocity", targetVector.magnitude);
         Vector3 movementVector = MoveTowardTarget(targetVector);
         
         //Jump
@@ -79,15 +86,15 @@ public class TopDownCharacterMover : MonoBehaviour
             if (_input.JumpButton)
             {
                 _isRising = true; 
-                rb.velocity = new Vector3(rb.velocity.x, _jumpSpeed, rb.velocity.z);
+                _rb.velocity = new Vector3(_rb.velocity.x, _jumpSpeed, _rb.velocity.z);
             }
         }
         else
         {
-            if (rb.velocity.y > -MaxFallSpeed)
+            if (_rb.velocity.y > -MaxFallSpeed)
             {
                 _isRising = false; 
-                rb.velocity -= new Vector3(0, _fallSpeed, 0);
+                _rb.velocity -= new Vector3(0, _fallSpeed, 0);
             }
         }
 
