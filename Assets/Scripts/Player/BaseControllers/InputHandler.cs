@@ -20,7 +20,7 @@ public class InputHandler : MonoBehaviour
 
         MousePosition = Input.mousePosition;
 
-        JumpButton = Input.GetButtonDown("Jump");
+        JumpButton = Input.GetKeyDown(KeyCode.Space);
 
         DialogueButton = Input.GetKeyDown(KeyCode.E);
     }

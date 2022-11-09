@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PlayerCheck : MonoBehaviour
 {
-    public bool PlayerIsIn;
+    private bool _playerIsIn;
     [SerializeField] private GameObject NPCInteractCanva;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            PlayerIsIn = true;
+            _playerIsIn = true;
+            other.GetComponent<DialogueInitiator>().SetIfPlayerIsCloserToEnemy(true);
             DoWhenPlayerGoesInside();
         }
     }
@@ -20,7 +21,7 @@ public class PlayerCheck : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            PlayerIsIn = true;
+            _playerIsIn = true;
         }
     }
 
@@ -28,7 +29,8 @@ public class PlayerCheck : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            PlayerIsIn = false;
+            _playerIsIn = false;
+            other.GetComponent<DialogueInitiator>().SetIfPlayerIsCloserToEnemy(false);
             DoWhenPlayerGoesOutside();
         }
     }

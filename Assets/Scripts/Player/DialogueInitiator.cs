@@ -7,19 +7,21 @@ public class DialogueInitiator : MonoBehaviour
     private InputHandler _input;
     [SerializeField]
     private GameObject DialogueCanvas;
-    private bool DialogueIsOn;
+    public bool DialogueIsOn;
+    private bool _playerIsCloserToEnemy;
 
     // Start is called before the first frame update
     void Awake()
     {
         _input = GetComponent<InputHandler>();
         DialogueIsOn = false;
+        _playerIsCloserToEnemy = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_input.DialogueButton)
+        if(_input.DialogueButton && _playerIsCloserToEnemy)
         {
             if (!DialogueIsOn)
             {
@@ -32,5 +34,10 @@ public class DialogueInitiator : MonoBehaviour
                 DialogueIsOn = false;
             }
         }
+    }
+
+    public void SetIfPlayerIsCloserToEnemy(bool value)
+    {
+        _playerIsCloserToEnemy = value;
     }
 }

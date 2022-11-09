@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueCanvas: {fileID: 0}
+  DialogueIsOn: 0
 --- !u!1001 &7912260499428203684
 PrefabInstance:
   m_ObjectHideFlags: 0

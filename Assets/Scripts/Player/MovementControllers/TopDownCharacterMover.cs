@@ -6,6 +6,8 @@ public class TopDownCharacterMover : MonoBehaviour
     private InputHandler _input;
     private Rigidbody _rb;
     private GroundCheck _ground;
+    private DialogueInitiator _dialogueInitiator;
+    private GeneralController _generalController;
 
     [Header("Rotate")]
     [SerializeField]
@@ -37,7 +39,6 @@ public class TopDownCharacterMover : MonoBehaviour
     [SerializeField]
     private float MaxFallSpeed;    
     private float _fallSpeed;
-
     private bool _isRising = false; 
     
     [Header("Camera")]
@@ -58,6 +59,8 @@ public class TopDownCharacterMover : MonoBehaviour
         _input = GetComponent<InputHandler>();
         _rb = GetComponent<Rigidbody>();
         _ground = GetComponentInChildren<GroundCheck>();
+        _dialogueInitiator = GetComponent<DialogueInitiator>();
+        _generalController = GetComponent<GeneralController>();
     }
 
     private void Start()
@@ -69,42 +72,48 @@ public class TopDownCharacterMover : MonoBehaviour
 
     void Update()
     {
-        //Movement
-        Vector3 targetVector = new Vector3(_input.MovementInputVector.x, 0, _input.MovementInputVector.y);
-        _anim.SetFloat("Velocity", targetVector.magnitude);
-        Vector3 movementVector = MoveTowardTarget(targetVector);
-        
-        //Jump
-        if (_ground.isOnGround)
+        if (!_dialogueInitiator.DialogueIsOn)
         {
-            // If player is on ground, we maintain his speed
-            if (_movementSpeed != _defaultMovementSpeed)
-            {
-                _movementSpeed = _defaultMovementSpeed; 
-            }
-            
-            if (_input.JumpButton)
-            {
-                _isRising = true; 
-                _rb.velocity = new Vector3(_rb.velocity.x, _jumpSpeed, _rb.velocity.z);
-            }
-        }
-        else
-        {
-            if (_rb.velocity.y > -MaxFallSpeed)
-            {
-                _isRising = false; 
-                _rb.velocity -= new Vector3(0, _fallSpeed, 0);
-            }
-        }
 
-        if (!RotateTowardMouse)
-        {
-            RotateTowardMovementVector(movementVector);
-        }
-        if (RotateTowardMouse)
-        {
-            RotateFromMouseVector();
+            //Movement
+            Vector3 targetVector = new Vector3(_input.MovementInputVector.x, 0, _input.MovementInputVector.y);
+            _anim.SetFloat("Velocity", targetVector.magnitude);
+            Vector3 movementVector = MoveTowardTarget(targetVector);
+
+            //Jump
+            _anim.SetBool("Grounded", _ground.isOnGround);
+            _anim.SetBool("Flying", (_rb.velocity.y > 0.1f && _generalController.CanFly));
+            if (_ground.isOnGround)
+            {
+                // If player is on ground, we maintain his speed
+                if (_movementSpeed != _defaultMovementSpeed)
+                {
+                    _movementSpeed = _defaultMovementSpeed;
+                }
+
+                if (_input.JumpButton)
+                {
+                    _isRising = true;
+                    _rb.velocity = new Vector3(_rb.velocity.x, _jumpSpeed, _rb.velocity.z);
+                }
+            }
+            else
+            {
+                if (_rb.velocity.y > -MaxFallSpeed)
+                {
+                    _isRising = false;
+                    _rb.velocity -= new Vector3(0, _fallSpeed, 0);
+                }
+            }
+
+            if (!RotateTowardMouse)
+            {
+                RotateTowardMovementVector(movementVector);
+            }
+            if (RotateTowardMouse)
+            {
+                RotateFromMouseVector();
+            }
         }
     }
 

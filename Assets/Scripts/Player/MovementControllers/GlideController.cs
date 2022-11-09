@@ -14,7 +14,7 @@ public class GlideController : MonoBehaviour
     
     [Header("Fly speed")]
     [SerializeField] private float _flyUpSpeed = 5f;
-    
+
     public bool IsNormalFlying { get; private set; } = false;
     public bool IsPlunging { get; private set; } = false; 
     
@@ -92,7 +92,7 @@ public class GlideController : MonoBehaviour
 
     private void ResetSpeed()
     {
-        _rb.velocity -= new Vector3(0, 0, 0);
+        _rb.velocity -= new Vector3(0, 0, 0); //you are not reseting speed here.
     }
 
     public void UpdateCounterFall()
