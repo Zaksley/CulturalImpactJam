@@ -407,6 +407,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 4076104974563898654, guid: 79356e85636b7a341b1b188fe1a4aba1, type: 3}
+      propertyPath: DialogueCanvas
+      value: 
+      objectReference: {fileID: 1591758658}
     - target: {fileID: 4083867404381666383, guid: 79356e85636b7a341b1b188fe1a4aba1, type: 3}
       propertyPath: DialogueCanvas
       value: 
