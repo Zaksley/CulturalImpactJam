@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8179233325085978504}
   - component: {fileID: 8179233325085978551}
   - component: {fileID: 8179233325085978550}
+  - component: {fileID: 4248025357586802228}
   m_Layer: 0
   m_Name: CharacterDebug
   m_TagString: Character
@@ -111,3 +112,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GiveRetrieveQuest: 0
+--- !u!114 &4248025357586802228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8179233325085978548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75b6fb07d701d049b8023b5bba9634d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: []
