@@ -8,7 +8,9 @@ public class InputHandler : MonoBehaviour
 
     public Vector3 MousePosition { get; private set; }
 
-    public bool JumpButton;
+    public bool JumpButton { get; private set; }
+
+    public bool DialogueButton { get; private set; }
     // Update is called once per frame
     void Update()
     {
@@ -19,5 +21,7 @@ public class InputHandler : MonoBehaviour
         MousePosition = Input.mousePosition;
 
         JumpButton = Input.GetButtonDown("Jump");
+
+        DialogueButton = Input.GetKeyDown(KeyCode.E);
     }
 }
