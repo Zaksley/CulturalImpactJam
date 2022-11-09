@@ -117,7 +117,7 @@ Material:
     - _DecalMeshViewBias: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DrawOrder: 0
+    - _DrawOrder: -1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0

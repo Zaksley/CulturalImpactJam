@@ -234,7 +234,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 10734b01bd1c06448862ee119716fa0a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 38d4de0c51cd8e144b8201f1ed6d8f67, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -574,7 +574,7 @@ AnimatorStateMachine:
     m_Position: {x: 270, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3178186091926895901}
-    m_Position: {x: 580, y: 10, z: 0}
+    m_Position: {x: 390, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5851480680853105827}
     m_Position: {x: 270, y: 270, z: 0}
@@ -583,7 +583,7 @@ AnimatorStateMachine:
     m_Position: {x: 520, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4590680320444348442}
-    m_Position: {x: 250, y: -20, z: 0}
+    m_Position: {x: 390, y: -130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3994063878109300893}
     m_Position: {x: 520, y: 220, z: 0}
@@ -609,7 +609,7 @@ AnimatorState:
   m_PrefabAsset: {fileID: 0}
   m_Name: Anim_Crow_Flying
   m_Speed: 1
-  m_CycleOffset: 0
+  m_CycleOffset: 0.23
   m_Transitions:
   - {fileID: 6997275444130368472}
   m_StateMachineBehaviours: []
