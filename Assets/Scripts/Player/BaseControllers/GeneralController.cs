@@ -1,10 +1,10 @@
-using System;
 using TMPro;
 using UnityEngine;
 
 public class GeneralController : MonoBehaviour
 {
     private float[] _valuesMaterial = {-0.24f, -0.137f, 0, 0.085f, 0.138f, 0.24f};
+    [SerializeField] private TextMeshProUGUI _textFeathers; 
 
     public bool CanHighJump { get; private set; }
     public bool CanFly { get; private set; }
@@ -15,7 +15,7 @@ public class GeneralController : MonoBehaviour
     [SerializeField] private int _neededFeathersToHighJump = 1;
     
     [Header("Flight mechanic")]
-    [SerializeField] private int _neededFeathersToFly = 4;
+    [SerializeField] private int _neededFeathersToFly = 3;
 
     [Header("Glide mechanic")] [SerializeField]
     private GlideController _glideController; 
@@ -50,6 +50,7 @@ public class GeneralController : MonoBehaviour
     {
         _valueMaterialFeather = _valuesMaterial[_numberFeathers]; 
         _crowMaterialFeathers.SetFloat("_WingsAppear", _valueMaterialFeather);
+        _textFeathers.text = _numberFeathers.ToString(); 
     }
 
     /// <summary>
