@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +17,16 @@ public class QuestController : MonoBehaviour
     public bool IsFeathersCollected { get; private set; }
     public bool IsScarecrowDone { get; private set; }
     public bool IsTheToolRecovered { get; private set; }
+
+    public List<bool> HasFaces = new List<bool>() {false, false, false};
+    public List<bool> HasHands = new List<bool>() {false, false, false};
+    public List<bool> HasHeads = new List<bool>() {false, false, false};
+
+    public int numberFaces = 0;
+    public int numberHands = 0;
+    public int numberHeads = 0;
+
+    public List<GameObject> ItemsScarecrow; 
     
     public enum QuestFollowing
     {
@@ -38,10 +47,6 @@ public class QuestController : MonoBehaviour
         _dictionaryQuests[QuestFollowing.FetchTool] = false; 
         _dictionaryQuests[QuestFollowing.FeathersCollectLady] = false; 
         _dictionaryQuests[QuestFollowing.ScareCrow] = false; 
-    }
-
-    private void Update()
-    {
     }
 
     public void ToolRecovered()
@@ -76,7 +81,16 @@ public class QuestController : MonoBehaviour
 
     public void AttributeQuest(QuestFollowing questGiven)
     {
-        _followingQuest = questGiven; 
+        _followingQuest = questGiven;
+
+        if (questGiven == QuestFollowing.ScareCrow)
+        {
+            foreach (var item in ItemsScarecrow)
+            {
+                item.SetActive(true);
+            }
+        }
+        
         Debug.Log("QUEST ACCEPTED : " + questGiven);
     }
 
@@ -92,5 +106,10 @@ public class QuestController : MonoBehaviour
     private void UpdateFinishedQuest()
     {
         _followingQuest = QuestFollowing.None; 
+    }
+
+    public int AskForNextOne(int value, int cap)
+    {
+        return (value + 1) % cap; 
     }
 }

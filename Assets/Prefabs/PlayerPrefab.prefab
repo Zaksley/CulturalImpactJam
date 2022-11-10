@@ -46,6 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _generalController: {fileID: 7289994646118221679}
   _neededFeathersLady: 3
+  HasFaces: 000000
+  HasHands: 000000
+  HasHeads: 000000
+  numberFaces: 0
+  numberHands: 0
+  numberHeads: 0
 --- !u!1 &4521618227692171254
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +149,7 @@ GameObject:
   - component: {fileID: 81381424229243301}
   - component: {fileID: 2271729060462716456}
   - component: {fileID: 4076104974563898654}
+  - component: {fileID: 1335739018144816064}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -302,6 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questController: {fileID: 1317510046373366938}
+  _handleScarecrow: {fileID: 0}
 --- !u!114 &4076104974563898654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +324,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueCanvas: {fileID: 0}
   DialogueIsOn: 0
+--- !u!114 &1335739018144816064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912260498954748948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafc5200e08d42dfbe5a229b9e4933f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _questController: {fileID: 1317510046373366938}
+  _scarecrowManager: {fileID: 0}
+  SwapFace: {fileID: 0}
+  SwapHand: {fileID: 0}
+  SwapHead: {fileID: 0}
 --- !u!1001 &7912260499428203684
 PrefabInstance:
   m_ObjectHideFlags: 0

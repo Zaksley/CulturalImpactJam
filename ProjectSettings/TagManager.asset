@@ -8,6 +8,10 @@ TagManager:
   - Mouse
   - FeatherLady
   - Character
+  - Heads
+  - Hands
+  - Faces
+  - Scarecrow
   layers:
   - Default
   - TransparentFX
