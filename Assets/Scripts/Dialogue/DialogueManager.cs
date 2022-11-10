@@ -20,11 +20,19 @@ public class DialogueManager : MonoBehaviour
 	private bool isTyping;
 
 	private bool _isThisDialogueAboutScarecrow = false;
+	private bool _isThisDialogueAboutLoveBirds = false; 
 	public GameObject PortraitCharacter;
 	public GameObject PortraitScarecrow;
 
 	private int countIndexElement = -1; 
-	public List<int> scareCrowPortraitDialogueLine; 
+	public List<int> scareCrowPortraitDialogueLine;
+	public List<int> LoveBirdOneDialogueLine;
+	public List<int> LoveBirdTwoDialogueLine;
+	public List<int> SecondLoveBirdOneDialogueLine;
+	public List<int> SecondLoveBirdTwoDialogueLine;
+
+	private Color _colorLoveBirdOne;
+	private Color _colorLoveBirdTwo; 
 	
 	// Use this for initialization
 	void Awake()
@@ -34,6 +42,9 @@ public class DialogueManager : MonoBehaviour
 		
 		if (PortraitScarecrow != null)
 			PortraitScarecrow.SetActive(false);
+		
+		_colorLoveBirdOne = new Color( 89.0f / 255.0f,121.0f / 255.0f,186.0f / 255.0f, 255);
+		_colorLoveBirdTwo = new Color(71.0f / 255.0f,149.0f / 255.0f,113.0f / 255.0f, 255); 
 	}
 
 	private void Update()
@@ -47,9 +58,11 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
-	public void StartDialogue(Dialogue dialogue, bool IsDialogueAboutScarecrow)
+	public void StartDialogue(Dialogue dialogue, bool IsDialogueAboutScarecrow, bool IsDialogueAboutLoveBirds)
 	{
-		_isThisDialogueAboutScarecrow = IsDialogueAboutScarecrow; 
+		_isThisDialogueAboutScarecrow = IsDialogueAboutScarecrow;
+		_isThisDialogueAboutLoveBirds = IsDialogueAboutLoveBirds; 
+		countIndexElement = -1; 
 		characterMover.SetIsOnDialogue(true);
 		isOnDialogue = true;
 
@@ -77,18 +90,47 @@ public class DialogueManager : MonoBehaviour
 			return;
 		}
 
-		if (_isThisDialogueAboutScarecrow)
+		if (_isThisDialogueAboutScarecrow || _isThisDialogueAboutLoveBirds)
 		{
 			countIndexElement++; 
 			PortraitCharacter.SetActive(true);
 			PortraitScarecrow.SetActive(false);
-
-			foreach (var dialogueIndex in scareCrowPortraitDialogueLine)
+			dialogueText.color = Color.white; 
+			
+			var lovebirdOneDialogueLine = _isThisDialogueAboutScarecrow ? LoveBirdOneDialogueLine : SecondLoveBirdOneDialogueLine;
+			var lovebirdTwoDialogueLine =
+				_isThisDialogueAboutScarecrow ? LoveBirdTwoDialogueLine : SecondLoveBirdTwoDialogueLine; 
+				
+			// First loving bird
+			foreach (var dialogueIndex in lovebirdOneDialogueLine)
 			{
 				if (dialogueIndex == countIndexElement)
 				{
-					PortraitCharacter.SetActive(false);
-					PortraitScarecrow.SetActive(true);
+					Debug.Log("in?");
+					dialogueText.color = _colorLoveBirdOne; 
+				}
+			}
+			
+			// Second loving bird
+			foreach (var dialogueIndex in lovebirdTwoDialogueLine)
+			{
+			
+				if (dialogueIndex == countIndexElement)
+				{
+					Debug.Log("in? two");
+					dialogueText.color = _colorLoveBirdTwo; 
+				}
+			}
+			
+			if (_isThisDialogueAboutScarecrow)
+			{
+				foreach (var dialogueIndex in scareCrowPortraitDialogueLine)
+				{
+					if (dialogueIndex == countIndexElement)
+					{
+						PortraitCharacter.SetActive(false);
+						PortraitScarecrow.SetActive(true);
+					}
 				}
 			}
 		}
