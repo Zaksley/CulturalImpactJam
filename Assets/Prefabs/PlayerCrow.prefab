@@ -388,6 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2394245165782773956}
   - component: {fileID: 572810775198015120}
+  - component: {fileID: 1030777085203193194}
   m_Layer: 0
   m_Name: PlayerCrow
   m_TagString: Untagged
@@ -432,6 +433,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1030777085203193194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058438822411758206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43b4818b7e9d5c47957869e11b930ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aus: {fileID: 0}
+  audios:
+  - {fileID: 8300000, guid: e45deb24f81d83f4fab67e23354779f0, type: 3}
+  - {fileID: 8300000, guid: 0c3a6fa41d543eb4cb7488976b1d68b2, type: 3}
+  - {fileID: 8300000, guid: 7e72907d0001c8d46963c83cfa2645c5, type: 3}
+  - {fileID: 8300000, guid: 4f5307843b6b4a940841c5b26e33e8bc, type: 3}
+  - {fileID: 8300000, guid: e28259f8deae2924bbc232909c3e1d3c, type: 3}
+  randomAudios: []
 --- !u!1 &3155100348800339902
 GameObject:
   m_ObjectHideFlags: 0
