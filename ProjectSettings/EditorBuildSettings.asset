@@ -5,7 +5,37 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Individual Scenes/Joel_Scene.unity
     guid: 46d73550e95b23944858f06c62e13011
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/MainMenu.unity
+    guid: adcdbe3333f9097419bf25eee4976501
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Intro_Sequence.unity
+    guid: 39f5102d968109e42913ea71a760afd7
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/MainScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/Individual Scenes/Enzo_Scene/Quests_Scene.unity
+    guid: dfbc70ba0f0e63245858802b88f700f9
+  - enabled: 0
+    path: Assets/Scenes/Individual Scenes/Enzo_Scene.unity
+    guid: 844232feb04d45747b230659297f1fd8
+  - enabled: 0
+    path: Assets/Scenes/Individual Scenes/Mechanics/GlidingMechanic.unity
+    guid: 197816f0dad5d3d428f2c3912faa9f99
+  - enabled: 0
+    path: Assets/Scenes/Individual Scenes/main_menu.unity
+    guid: fd98f704601aa624abbf58f0a79caa1e
+  - enabled: 0
+    path: Assets/Scenes/Individual Scenes/Mechanics/DialogueMechanic.unity
+    guid: 9612fca329e6dbb47b65a2b4cec521ef
+  - enabled: 0
+    path: Assets/Scenes/Individual Scenes/UITest.unity
+    guid: 0ecd812603fed994b82ef378f6addf10
+  - enabled: 0
+    path: Assets/Scenes/Individual Scenes/Joel_Scene/MainScene_Copy.unity
+    guid: a9c0e76be04afac44854d12773367e7f
   m_configObjects: {}

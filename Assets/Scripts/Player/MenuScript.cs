@@ -6,12 +6,9 @@
  * Last Edited by:
  ****/
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
@@ -21,21 +18,19 @@ public class MenuScript : MonoBehaviour
     public TMP_Text creditsTextbox; //textbox for the credits
     public TMP_Text copyrightTextbox; //textbox for the copyright
     public TMP_Text endMessageTextbox; //textbox for the end message
-
-
-    // Start is called before the first frame update
+    
     void Start()
     {
        //set the value for the textboxes 
     }
 
    public void OnGameStart()
-    {
-        Debug.Log("Game Started");
-    } //OnGameStart()
+   {
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+   } 
 
     public void OnGameExit()
     {
-        Debug.Log("Game Exited");
-    } //OnGameExit()
+        Application.Quit();
+    } 
 }
