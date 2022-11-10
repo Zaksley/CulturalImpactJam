@@ -25,4 +25,9 @@ public class SFXCall : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void changeSceneInt(int i)
+    {
+        SceneManager.LoadScene(i);
+    }
 }
