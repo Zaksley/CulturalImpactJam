@@ -12,11 +12,10 @@ public class TopDownCharacterMover : MonoBehaviour
     [SerializeField]
     private bool RotateTowardMouse;
     [SerializeField]
-    //I set to zero because the rotation will probably be made with the animation
-    //But this is depending on the assets that we will use
     private float RotationSpeed;
 
     [Header("Movement")]
+    [SerializeField]
     private float _movementSpeed;
     [SerializeField]
     private float _defaultMovementSpeed;
@@ -26,6 +25,7 @@ public class TopDownCharacterMover : MonoBehaviour
     private float _flyMovementSpeed;
     
     [Header("Jump")]
+    [SerializeField]
     private float _jumpSpeed;
     [SerializeField]
     private float _defaultJumpSpeed;
@@ -110,7 +110,7 @@ public class TopDownCharacterMover : MonoBehaviour
             {
                 RotateTowardMovementVector(movementVector);
             }
-            if (RotateTowardMouse)
+            else if (RotateTowardMouse)
             {
                 RotateFromMouseVector();
             }

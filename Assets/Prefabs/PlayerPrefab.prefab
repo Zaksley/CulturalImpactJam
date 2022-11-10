@@ -227,9 +227,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotateTowardMouse: 0
   RotationSpeed: 5
-  _defaultMovementSpeed: 7.5
+  _movementSpeed: 0
+  _defaultMovementSpeed: 10
   _glideMovementSpeed: 15
   _flyMovementSpeed: 25
+  _jumpSpeed: 0
   _defaultJumpSpeed: 21
   _highJumpSpeed: 32
   _defaultFallSpeed: 0.2
@@ -294,7 +296,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7912260498954748948}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50651b4fde3f4a38b583e6c279350735, type: 3}
   m_Name: 

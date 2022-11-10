@@ -1,10 +1,9 @@
-using TMPro;
 using UnityEngine;
 
 public class GeneralController : MonoBehaviour
 {
     private float[] _valuesMaterial = {-0.24f, -0.137f, 0, 0.085f, 0.138f, 0.24f};
-    [SerializeField] private TextMeshProUGUI _textFeathers; 
+    [SerializeField] private GameObject[] _feathers = new GameObject[6]; 
 
     public bool CanHighJump { get; private set; }
     public bool CanFly { get; private set; }
@@ -31,7 +30,11 @@ public class GeneralController : MonoBehaviour
 
     private void Start()
     {
-        _crowMaterialFeathers = _crowRenderer.GetComponent<SkinnedMeshRenderer>().material; 
+        _crowMaterialFeathers = _crowRenderer.GetComponent<SkinnedMeshRenderer>().material;
+        for (int i = 0; i < _feathers.Length; i++)
+        {
+            _feathers[i].SetActive(false);
+        }
         UpdateFeatherLooking();
     }
 
@@ -50,7 +53,10 @@ public class GeneralController : MonoBehaviour
     {
         _valueMaterialFeather = _valuesMaterial[_numberFeathers]; 
         _crowMaterialFeathers.SetFloat("_WingsAppear", _valueMaterialFeather);
-        _textFeathers.text = _numberFeathers.ToString(); 
+        for (int i = 0; i < _feathers.Length; i++)
+        {
+            if (i < _numberFeathers) _feathers[i].SetActive(true);
+        }
     }
 
     /// <summary>
