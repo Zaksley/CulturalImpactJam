@@ -171,7 +171,7 @@ MonoBehaviour:
     - "Ah, so you definitely weren\u2019t the one eating the pumpkins."
     - "You poor thing! How\u2019d you lose your feathers?"
     - (She bends over to tend to you, when you notice a figure looming behind her)
-    - "(Use Scarecrow Portrait) \u2026"
+    - "\u2026"
     - (She shoots back up)
     - "Oh! Did I hurt you? I\u2019m sorry."
     - No, honey, I think it was our poor broken scarecrow behind you. I mean, I guess
@@ -181,8 +181,8 @@ MonoBehaviour:
       scarecrow. I get the feeling you might know what I mean.
     - Yeah! See?
     - (She steps aside and pulls the Scarecrow forward)
-    - "(Use Scarecrow Portrait) \u2026"
-    - "(Use Scarecrow Portrait) (The Scarecrow\u2019s head falls off)"
+    - "\u2026"
+    - "(The Scarecrow\u2019s head falls off)"
     - "Oh dear\u2026 I think we\u2019re going to need a new one."
     - "Say, you\u2019re small and close to the ground. I know we have some materials
       around here that can make a Scarecrow. If you can find them, we can help you
@@ -210,13 +210,6 @@ MonoBehaviour:
     portrait: {fileID: 21300000, guid: 61bbcfe82f170ce439f9b3a7ccb66eb8, type: 3}
     name: Laurel and Birdget
     sentences:
-    - What fun scarecrow materials have you brought for us?
-    - "\u2026interesting choices."
-    - They look perfect! I'm sure this will make for a fine scarecrow. Are you ready
-      to get it built?
-    - Hey, we'll be with you every step of the way.
-    - And it's just like we said. Even though it looks scary, see, it's just a pile
-      of straw and sticks!
     - And look at that! What a handsome scarecrow it is.
     - Scary enough that it will keep our pumpkins safe.
     - See? It doesn't seem so bad now does it?

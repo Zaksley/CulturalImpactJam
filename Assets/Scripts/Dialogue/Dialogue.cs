@@ -9,5 +9,4 @@ public class Dialogue
 	public Sprite portrait;
 	public string name;
 	public string[] sentences;
-
 }

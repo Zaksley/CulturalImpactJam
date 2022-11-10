@@ -19,11 +19,21 @@ public class DialogueManager : MonoBehaviour
 	private bool isOnDialogue;
 	private bool isTyping;
 
+	private bool _isThisDialogueAboutScarecrow = false;
+	public GameObject PortraitCharacter;
+	public GameObject PortraitScarecrow;
+
+	private int countIndexElement = -1; 
+	public List<int> scareCrowPortraitDialogueLine; 
+	
 	// Use this for initialization
 	void Awake()
 	{
 		sentences = new Queue<string>();
 		animator = this.GetComponent<Animator>();
+		
+		if (PortraitScarecrow != null)
+			PortraitScarecrow.SetActive(false);
 	}
 
 	private void Update()
@@ -37,8 +47,9 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
-	public void StartDialogue(Dialogue dialogue)
+	public void StartDialogue(Dialogue dialogue, bool IsDialogueAboutScarecrow)
 	{
+		_isThisDialogueAboutScarecrow = IsDialogueAboutScarecrow; 
 		characterMover.SetIsOnDialogue(true);
 		isOnDialogue = true;
 
@@ -66,6 +77,22 @@ public class DialogueManager : MonoBehaviour
 			return;
 		}
 
+		if (_isThisDialogueAboutScarecrow)
+		{
+			countIndexElement++; 
+			PortraitCharacter.SetActive(true);
+			PortraitScarecrow.SetActive(false);
+
+			foreach (var dialogueIndex in scareCrowPortraitDialogueLine)
+			{
+				if (dialogueIndex == countIndexElement)
+				{
+					PortraitCharacter.SetActive(false);
+					PortraitScarecrow.SetActive(true);
+				}
+			}
+		}
+		
 		string sentence = sentences.Dequeue();
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));
