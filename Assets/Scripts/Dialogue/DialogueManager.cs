@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -157,6 +158,9 @@ public class DialogueManager : MonoBehaviour
 		animator.SetTrigger("NPC_Exit");
 		isOnDialogue = false;
 		characterMover.SetIsOnDialogue(false);
+		
+		if (_isThisDialogueAboutLoveBirds)
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
 	}
 
 }
