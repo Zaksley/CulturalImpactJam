@@ -74,7 +74,6 @@ public class TopDownCharacterMover : MonoBehaviour
     {
         if (!isOnDialogue)
         {
-
             //Movement
             Vector3 targetVector = new Vector3(_input.MovementInputVector.x, 0, _input.MovementInputVector.y);
             _anim.SetFloat("Velocity", targetVector.magnitude);
@@ -168,5 +167,6 @@ public class TopDownCharacterMover : MonoBehaviour
     public void SetIsOnDialogue(bool value)
     {
         isOnDialogue = value;
+        _anim.SetFloat("Velocity", 0);
     }
 }

@@ -10,16 +10,14 @@ public class DialogueInitiator : MonoBehaviour
     [SerializeField] private GameObject NPCInteractCanva;
 
     private Collider player;
-
-    // Start is called before the first frame update
-
-    // Update is called once per frame
+    
     void Update()
     {
         bool dialogueButton = Input.GetKeyDown(KeyCode.E);
 
         if (dialogueButton && _playerIsIn)
         {
+            
             debugCharacterDialog.GiveQuest(player);
         }
     }
