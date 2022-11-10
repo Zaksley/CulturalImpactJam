@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GeneralController : MonoBehaviour
@@ -22,7 +23,13 @@ public class GeneralController : MonoBehaviour
 
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _soundCompleteQuest;
-    [SerializeField] private float _volumeCompleteQuest; 
+    [SerializeField] private float _volumeCompleteQuest;
+
+    [Header("Music")] 
+    [SerializeField] private AudioSource _musicSource;
+    [SerializeField] private float _musicVolume;
+
+    [SerializeField] private List<AudioClip> _musicClips = new List<AudioClip>(); 
     
     // Visual feathers variables
     [SerializeField] private GameObject _crowRenderer; 
@@ -40,6 +47,8 @@ public class GeneralController : MonoBehaviour
             _feathers[i].SetActive(false);
         }
         UpdateFeatherLooking();
+
+        _musicSource.volume = _musicVolume; 
     }
 
     private void Update()
@@ -52,7 +61,8 @@ public class GeneralController : MonoBehaviour
         _numberFeathers++;
         UpdateFeatherLooking();
         UpdateUIFeatherLooking(questFollowing);
-        PlaySoundCompleteQuest(); 
+        PlaySoundCompleteQuest();
+        UpdateMusic(); 
     }
 
     private void UpdateFeatherLooking()
@@ -70,6 +80,16 @@ public class GeneralController : MonoBehaviour
     private void UpdateUIFeatherLooking(QuestController.QuestFollowing questFollowing)
     {
         _feathers[(int) questFollowing].SetActive(true);
+    }
+
+    private void UpdateMusic()
+    {
+        if (_numberFeathers <= 0 || _numberFeathers >= 5)
+            return;
+
+        _musicSource.Stop(); 
+        _musicSource.clip = _musicClips[_numberFeathers-1];
+        _musicSource.Play(); 
     }
 
     /// <summary>

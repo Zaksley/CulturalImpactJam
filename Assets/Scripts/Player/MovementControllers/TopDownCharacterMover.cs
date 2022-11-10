@@ -48,6 +48,10 @@ public class TopDownCharacterMover : MonoBehaviour
     [SerializeField]
     private Animator _anim;
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _soundJump;
+    [SerializeField] private float _volumeJump; 
+
     public float FallSpeed => _fallSpeed;
     public float DefaultSpeed => _defaultFallSpeed;
     public bool IsOnGround => _ground.isOnGround;
@@ -94,6 +98,7 @@ public class TopDownCharacterMover : MonoBehaviour
                 {
                     _isRising = true;
                     _rb.velocity = new Vector3(_rb.velocity.x, _jumpSpeed, _rb.velocity.z);
+                    _audioSource.PlayOneShot(_soundJump, _volumeJump);
                 }
             }
             else
