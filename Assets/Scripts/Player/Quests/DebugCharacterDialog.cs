@@ -23,6 +23,7 @@ public class DebugCharacterDialog : MonoBehaviour
             {
                 hasFirstDialogue = false;
                 FirstDialogue.Invoke();
+                other.GetComponent<GeneralController>().GainFeather();
             }
             return;
         }
@@ -38,7 +39,11 @@ public class DebugCharacterDialog : MonoBehaviour
                 if (!questController.DictionaryQuests[GiveRetrieveQuest]) 
                 {
                     questController.AttributeQuest(GiveRetrieveQuest);
-                    if (hasFirstDialogue) FirstDialogue.Invoke();
+                    if (hasFirstDialogue)
+                    {
+                        hasFirstDialogue = false;
+                        FirstDialogue.Invoke();
+                    }
                 }
                 // Quest already done
                 else
@@ -54,6 +59,11 @@ public class DebugCharacterDialog : MonoBehaviour
                 {
                     if (CheckRequierements(GiveRetrieveQuest, questController)) 
                     {
+                        if (hasSecondDialogue)
+                        {
+                            hasSecondDialogue = false;
+                            SecondDialogue.Invoke();
+                        }
                         questController.CompleteQuest(GiveRetrieveQuest); 
                     }
                 }
