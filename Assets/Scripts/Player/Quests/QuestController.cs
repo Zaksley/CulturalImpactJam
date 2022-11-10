@@ -96,7 +96,7 @@ public class QuestController : MonoBehaviour
 
     public void CompleteQuest(QuestFollowing questDone)
     {
-        _generalController.GainFeather();
+        _generalController.GainFeather(questDone);
         _dictionaryQuests[questDone] = true; 
         UpdateFinishedQuest();
         

@@ -23,7 +23,7 @@ public class DebugCharacterDialog : MonoBehaviour
             {
                 hasFirstDialogue = false;
                 FirstDialogue.Invoke();
-                other.GetComponent<GeneralController>().GainFeather();
+                other.GetComponent<GeneralController>().GainFeather(QuestController.QuestFollowing.None);
             }
             return;
         }

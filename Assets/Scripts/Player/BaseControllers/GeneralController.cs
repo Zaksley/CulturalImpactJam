@@ -43,20 +43,28 @@ public class GeneralController : MonoBehaviour
         UpdateMechanics();
     }
 
-    public void GainFeather()
+    public void GainFeather(QuestController.QuestFollowing questFollowing)
     {
         _numberFeathers++;
         UpdateFeatherLooking();
+        UpdateUIFeatherLooking(questFollowing); 
     }
 
     private void UpdateFeatherLooking()
     {
+        // Update visual on the crow 
         _valueMaterialFeather = _valuesMaterial[_numberFeathers]; 
         _crowMaterialFeathers.SetFloat("_WingsAppear", _valueMaterialFeather);
-        for (int i = 0; i < _feathers.Length; i++)
-        {
-            if (i < _numberFeathers) _feathers[i].SetActive(true);
-        }
+        
+        // for (int i = 0; i < _feathers.Length; i++)
+        // {
+        //     if (i < _numberFeathers) _feathers[i].SetActive(true);
+        // }
+    }
+
+    private void UpdateUIFeatherLooking(QuestController.QuestFollowing questFollowing)
+    {
+        _feathers[(int) questFollowing].SetActive(true);
     }
 
     /// <summary>
