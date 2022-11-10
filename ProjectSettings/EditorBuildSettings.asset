@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: adcdbe3333f9097419bf25eee4976501
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Intro_Sequence.unity
-    guid: 39f5102d968109e42913ea71a760afd7
+    guid: 362ee2b64e22510478c419b6ae596ce5
   - enabled: 1
     path: Assets/Scenes/Final Scenes/MainScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
