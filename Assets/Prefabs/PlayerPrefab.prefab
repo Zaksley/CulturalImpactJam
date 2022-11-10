@@ -52,6 +52,7 @@ MonoBehaviour:
   numberFaces: 0
   numberHands: 0
   numberHeads: 0
+  ItemsScarecrow: []
 --- !u!1 &4521618227692171254
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questController: {fileID: 1317510046373366938}
-  _handleScarecrow: {fileID: 0}
+  _handleScarecrow: {fileID: 1335739018144816064}
 --- !u!114 &4076104974563898654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +342,10 @@ MonoBehaviour:
   SwapFace: {fileID: 0}
   SwapHand: {fileID: 0}
   SwapHead: {fileID: 0}
+  FacesParts: []
+  HandsParts: []
+  HeadsParts: []
+  InteractCanva: {fileID: 0}
 --- !u!1001 &7912260499428203684
 PrefabInstance:
   m_ObjectHideFlags: 0
