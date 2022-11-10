@@ -16,8 +16,8 @@ public class GlideController : MonoBehaviour
     [SerializeField] private float _flyUpSpeed = 5f;
 
     public bool IsNormalFlying { get; private set; } = false;
-    public bool IsPlunging { get; private set; } = false; 
-    
+    public bool IsPlunging { get; private set; } = false;
+
     private void Update()
     {
         if (_movementController.IsOnGround || !_generalController.CanGlide)
