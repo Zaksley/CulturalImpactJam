@@ -50,12 +50,26 @@ public class PlayerHandleScarecrow : MonoBehaviour
         if (IsInteractingWithScarecrow)
         {
             StateButtons(true);
+            
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                ScrollFace();
+            }
+            
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                ScrollHead();
+            }
+            
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                ScrollHand();
+            }
         }
         else
         {
             StateButtons(false);
         }
-
     }
     
     private void OnTriggerEnter(Collider other)
