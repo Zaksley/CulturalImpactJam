@@ -3,7 +3,12 @@ using UnityEngine;
 public class QuestCollider : MonoBehaviour
 {
     [SerializeField] private QuestController _questController;
-    [SerializeField] private PlayerHandleScarecrow _handleScarecrow; 
+    [SerializeField] private PlayerHandleScarecrow _handleScarecrow;
+
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _soundGetObject;
+
+    [SerializeField] private float _volumeObject; 
     
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +20,7 @@ public class QuestCollider : MonoBehaviour
                 {
                     _questController.ToolRecovered();
                     other.gameObject.SetActive(false);
+                    _audioSource.PlayOneShot(_soundGetObject, _volumeObject);
                 }
                 break; 
             
@@ -24,6 +30,7 @@ public class QuestCollider : MonoBehaviour
                 {
                     _questController.AddFeatherLady();
                     other.gameObject.SetActive(false);
+                    _audioSource.PlayOneShot(_soundGetObject, _volumeObject);
                 }
                 break; 
             
@@ -33,6 +40,7 @@ public class QuestCollider : MonoBehaviour
                 {
                     _questController.MouseCollected();
                     other.gameObject.SetActive(false);
+                    _audioSource.PlayOneShot(_soundGetObject, _volumeObject);
                 }
                 break; 
             
@@ -43,6 +51,7 @@ public class QuestCollider : MonoBehaviour
                     _questController.HasHands[value-1] = true; 
                     _questController.numberHands++; 
                     other.gameObject.SetActive(false);
+                    _audioSource.PlayOneShot(_soundGetObject, _volumeObject);
                     
                     _handleScarecrow.UpdateButtons();
                 }
@@ -55,6 +64,7 @@ public class QuestCollider : MonoBehaviour
                     _questController.HasFaces[value-1] = true;
                     _questController.numberFaces++; 
                     other.gameObject.SetActive(false);
+                    _audioSource.PlayOneShot(_soundGetObject, _volumeObject);
                     
                     _handleScarecrow.UpdateButtons();
                 }
@@ -67,6 +77,7 @@ public class QuestCollider : MonoBehaviour
                     _questController.HasHeads[value-1] = true; 
                     _questController.numberHeads++; 
                     other.gameObject.SetActive(false);
+                    _audioSource.PlayOneShot(_soundGetObject, _volumeObject);
                     
                     _handleScarecrow.UpdateButtons();
                 }

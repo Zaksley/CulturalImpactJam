@@ -328,6 +328,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questController: {fileID: 1317510046373366938}
   _handleScarecrow: {fileID: 1335739018144816064}
+  _audioSource: {fileID: 753452393918954681}
+  _soundGetObject: {fileID: 8300000, guid: 182d3b6f7ceace6448a2f2c48395f61d, type: 3}
+  _volumeObject: 0.5
 --- !u!114 &1335739018144816064
 MonoBehaviour:
   m_ObjectHideFlags: 0
