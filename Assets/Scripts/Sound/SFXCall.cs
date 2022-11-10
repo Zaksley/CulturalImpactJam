@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SFXCall : MonoBehaviour
 {
@@ -19,5 +20,9 @@ public class SFXCall : MonoBehaviour
         index = Random.Range(0, 3);
         aus.clip = audios[index];
         aus.Play();
+    }
+    public void changeScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
