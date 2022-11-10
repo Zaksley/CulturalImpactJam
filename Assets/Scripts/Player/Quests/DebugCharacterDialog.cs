@@ -1,14 +1,32 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DebugCharacterDialog : MonoBehaviour
 {
     public QuestController.QuestFollowing GiveRetrieveQuest;
+    public bool hasFirstDialogue;
+    public UnityEvent FirstDialogue;
+    public bool hasSecondDialogue;
+    public UnityEvent SecondDialogue;
+    public bool hasThirdDialogue;
+    public UnityEvent ThirdDialogue;
 
-    private void OnTriggerEnter(Collider other)
+    public void GiveQuest(Collider other)
     {
-        if (!other.CompareTag("Player") || GiveRetrieveQuest == QuestController.QuestFollowing.None)
-            return; 
-            
+        
+        if (!other.CompareTag("Player"))
+            return;
+
+        if (GiveRetrieveQuest == QuestController.QuestFollowing.None)
+        {
+            if (hasFirstDialogue)
+            {
+                hasFirstDialogue = false;
+                FirstDialogue.Invoke();
+            }
+            return;
+        }
+
         var questController =  other.GetComponentInChildren<QuestController>();
 
         if (questController != null)
@@ -17,9 +35,10 @@ public class DebugCharacterDialog : MonoBehaviour
             if (questController.FollowingQuest == QuestController.QuestFollowing.None)
             {
                 //Give quest
-                if (!questController.DictionaryQuests[GiveRetrieveQuest])
+                if (!questController.DictionaryQuests[GiveRetrieveQuest]) 
                 {
-                    questController.AttributeQuest(GiveRetrieveQuest); 
+                    questController.AttributeQuest(GiveRetrieveQuest);
+                    if (hasFirstDialogue) FirstDialogue.Invoke();
                 }
                 // Quest already done
                 else
@@ -31,11 +50,11 @@ public class DebugCharacterDialog : MonoBehaviour
             else
             {
                 if (questController.FollowingQuest == GiveRetrieveQuest &&
-                    !questController.DictionaryQuests[GiveRetrieveQuest])
+                    !questController.DictionaryQuests[GiveRetrieveQuest]) 
                 {
-                    if (CheckRequierements(GiveRetrieveQuest, questController))
+                    if (CheckRequierements(GiveRetrieveQuest, questController)) 
                     {
-                        questController.CompleteQuest(GiveRetrieveQuest);
+                        questController.CompleteQuest(GiveRetrieveQuest); 
                     }
                 }
             }

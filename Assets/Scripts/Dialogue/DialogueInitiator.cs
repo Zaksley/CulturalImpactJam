@@ -4,40 +4,50 @@ using UnityEngine;
 
 public class DialogueInitiator : MonoBehaviour
 {
-    private InputHandler _input;
-    [SerializeField]
-    private GameObject DialogueCanvas;
-    public bool DialogueIsOn;
-    private bool _playerIsCloserToEnemy;
+    [SerializeField] private DebugCharacterDialog debugCharacterDialog;
+
+    private bool _playerIsIn;
+    [SerializeField] private GameObject NPCInteractCanva;
+
+    private Collider player;
 
     // Start is called before the first frame update
-    void Awake()
-    {
-        _input = GetComponent<InputHandler>();
-        DialogueIsOn = false;
-        _playerIsCloserToEnemy = false;
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(_input.DialogueButton && _playerIsCloserToEnemy)
+        bool dialogueButton = Input.GetKeyDown(KeyCode.E);
+
+        if (dialogueButton && _playerIsIn)
         {
-            if (!DialogueIsOn)
-            {
-                DialogueCanvas.GetComponent<Animator>().SetTrigger("NPC_Enter");
-                DialogueIsOn = true;
-            }
-            else
-            {
-                DialogueCanvas.GetComponent<Animator>().SetTrigger("NPC_Exit");
-                DialogueIsOn = false;
-            }
+            debugCharacterDialog.GiveQuest(player);
         }
     }
 
-    public void SetIfPlayerIsCloserToEnemy(bool value)
+    private void OnTriggerEnter(Collider other)
     {
-        _playerIsCloserToEnemy = value;
+        if (other.tag == "Player")
+        {
+            player = other;
+            _playerIsIn = true;
+            NPCInteractCanva.SetActive(true);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            _playerIsIn = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            _playerIsIn = false;
+            NPCInteractCanva.SetActive(false);
+        }
     }
 }

@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 3557217743460043679}
   - component: {fileID: 3557217743460043678}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CharacterLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -502,6 +502,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43622dde887072d409230ad9cf7f219e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portrait: {fileID: 3557217742098958515}
+  nameText: {fileID: 3557217744120128418}
+  dialogueText: {fileID: 3557217743460043678}
+  characterMover: {fileID: 0}
 --- !u!1 &3557217744120128416
 GameObject:
   m_ObjectHideFlags: 0

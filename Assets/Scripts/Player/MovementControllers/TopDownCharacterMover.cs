@@ -6,7 +6,6 @@ public class TopDownCharacterMover : MonoBehaviour
     private InputHandler _input;
     private Rigidbody _rb;
     private GroundCheck _ground;
-    private DialogueInitiator _dialogueInitiator;
     private GeneralController _generalController;
 
     [Header("Rotate")]
@@ -52,14 +51,15 @@ public class TopDownCharacterMover : MonoBehaviour
     public float FallSpeed => _fallSpeed;
     public float DefaultSpeed => _defaultFallSpeed;
     public bool IsOnGround => _ground.isOnGround;
-    public bool IsRising => _isRising; 
+    public bool IsRising => _isRising;
+
+    private bool isOnDialogue;
 
     private void Awake()
     {
         _input = GetComponent<InputHandler>();
         _rb = GetComponent<Rigidbody>();
         _ground = GetComponentInChildren<GroundCheck>();
-        _dialogueInitiator = GetComponent<DialogueInitiator>();
         _generalController = GetComponent<GeneralController>();
     }
 
@@ -72,7 +72,7 @@ public class TopDownCharacterMover : MonoBehaviour
 
     void Update()
     {
-        if (!_dialogueInitiator.DialogueIsOn)
+        if (!isOnDialogue)
         {
 
             //Movement
@@ -163,5 +163,10 @@ public class TopDownCharacterMover : MonoBehaviour
             _movementSpeed = _glideMovementSpeed;
             return; 
         }
+    }
+
+    public void SetIsOnDialogue(bool value)
+    {
+        isOnDialogue = value;
     }
 }
