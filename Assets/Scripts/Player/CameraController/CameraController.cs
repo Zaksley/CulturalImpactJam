@@ -10,26 +10,26 @@ public class CameraController : MonoBehaviour
     public GameObject MainCamera;
     public GameObject FlightCamera;
     public GameObject PlungeCamera; 
-
+    
     private void Update()
     {
-        if (_glideController.IsNormalFlying)
-        {
-            MainCamera.SetActive(false);
-            FlightCamera.SetActive(true);
-            PlungeCamera.SetActive(false);
-        }
-        else if (_glideController.IsPlunging)
-        {
-            MainCamera.SetActive(false);
-            FlightCamera.SetActive(false);
-            PlungeCamera.SetActive(true);
-        }
-        else
-        {
-            MainCamera.SetActive(true);
-            FlightCamera.SetActive(false);
-            PlungeCamera.SetActive(false);
-        }
+        // if (_glideController.IsNormalFlying)
+        // {
+        //     MainCamera.SetActive(false);
+        //     FlightCamera.SetActive(true);
+        //     PlungeCamera.SetActive(false);
+        // }
+        // else if (_glideController.IsPlunging)
+        // {
+        //     MainCamera.SetActive(false);
+        //     FlightCamera.SetActive(false);
+        //     PlungeCamera.SetActive(true);
+        // }
+        // else
+        // {
+        //     MainCamera.SetActive(true);
+        //     FlightCamera.SetActive(false);
+        //     PlungeCamera.SetActive(false);
+        // }
     }
 }
