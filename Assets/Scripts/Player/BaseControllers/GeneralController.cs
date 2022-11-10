@@ -20,6 +20,10 @@ public class GeneralController : MonoBehaviour
     private GlideController _glideController; 
     [SerializeField] private int _neededFeathersToGlide = 2;
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _soundCompleteQuest;
+    [SerializeField] private float _volumeCompleteQuest; 
+    
     // Visual feathers variables
     [SerializeField] private GameObject _crowRenderer; 
     private Material _crowMaterialFeathers;
@@ -47,7 +51,8 @@ public class GeneralController : MonoBehaviour
     {
         _numberFeathers++;
         UpdateFeatherLooking();
-        UpdateUIFeatherLooking(questFollowing); 
+        UpdateUIFeatherLooking(questFollowing);
+        PlaySoundCompleteQuest(); 
     }
 
     private void UpdateFeatherLooking()
@@ -55,11 +60,11 @@ public class GeneralController : MonoBehaviour
         // Update visual on the crow 
         _valueMaterialFeather = _valuesMaterial[_numberFeathers]; 
         _crowMaterialFeathers.SetFloat("_WingsAppear", _valueMaterialFeather);
-        
-        // for (int i = 0; i < _feathers.Length; i++)
-        // {
-        //     if (i < _numberFeathers) _feathers[i].SetActive(true);
-        // }
+    }
+
+    private void PlaySoundCompleteQuest()
+    {
+        _audioSource.PlayOneShot(_soundCompleteQuest, _volumeCompleteQuest);
     }
 
     private void UpdateUIFeatherLooking(QuestController.QuestFollowing questFollowing)
