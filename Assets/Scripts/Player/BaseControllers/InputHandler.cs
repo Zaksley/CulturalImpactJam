@@ -12,6 +12,11 @@ public class InputHandler : MonoBehaviour
 
     public bool DialogueButton { get; private set; }
     // Update is called once per frame
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     void Update()
     {
         var h = Input.GetAxis("Horizontal");
