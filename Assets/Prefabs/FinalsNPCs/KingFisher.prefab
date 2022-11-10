@@ -96,6 +96,113 @@ Transform:
   m_Father: {fileID: 1094484654685710465}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 40.39772, y: -179.99998, z: -180}
+--- !u!1 &1308328589519406549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308328589519406548}
+  - component: {fileID: 1308328589519406551}
+  - component: {fileID: 6439690321370778709}
+  m_Layer: 0
+  m_Name: Quest&Dialogue
+  m_TagString: Character
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308328589519406548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308328589519406549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7839456864470351163}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308328589519406551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308328589519406549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dd59cd9be544d2aa82895e5fd1dd51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GiveRetrieveQuest: 0
+  hasFirstDialogue: 1
+  FirstDialogue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6439690321370778709}
+        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hasSecondDialogue: 0
+  SecondDialogue:
+    m_PersistentCalls:
+      m_Calls: []
+  hasThirdDialogue: 0
+  ThirdDialogue:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6439690321370778709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308328589519406549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75b6fb07d701d049b8023b5bba9634d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    portrait: {fileID: 21300000, guid: 23ce779103195224c8d87cbbb105847e, type: 3}
+    name: Emma
+    sentences:
+    - "Hm\u2026 This isn\u2019t a fish."
+    - Oh! Definitely not a fish. What are you doing in the ocean?
+    - "Hm, not very chatty are you? Here, let\u2019s get you down and dry you off."
+    - (Emma takes you back to her house, and dries you off)
+    - There, all better now. I bet you're anxious to get back to your flock.
+    - (You try to fly away, but crash to the ground)
+    - "Hm? What\u2019s the matter?"
+    - (You show her your wing)
+    - "Ah, I see. You\u2019ve lost your flight feathers. You won\u2019t be going
+      anywhere without those anytime soon."
+    - "Well, don\u2019t fret. I was where you are once, and I had someone to pick
+      me up when I was down. Now I can pay it forward."
+    - (Emma gives you a red feather)
+    - "Here\u2019s one of my feathers to start you on your journey. You\u2019ll need
+      more than that one to start flying, of course. "
+    - "But I\u2019m sure you\u2019ll figure it out - we all do in our own time. Maybe
+      some of the others on this isle can give you some insight."
+    - Just up behind my cottage is my good friend, Rava. Everyone here goes to her
+      for advice.
+    - "Good luck on your journey, little one. I\u2019m sure you\u2019ll be flying
+      in no time. "
 --- !u!1 &1987633585157993100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,88 +1258,3 @@ Transform:
   m_Father: {fileID: 8096453993862172844}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45.20682, y: 0.00000021199712, z: 0.00003736018}
---- !u!1001 &7181663280975555169
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7839456864470351163}
-    m_Modifications:
-    - target: {fileID: 8179233325085978548, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_Name
-      value: Quest&Dialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
---- !u!4 &1308328589519406548 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8179233325085978549, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-  m_PrefabInstance: {fileID: 7181663280975555169}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1308328589519406551 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8179233325085978550, guid: 577d8ed055f3f4c4eae8226b43d32602, type: 3}
-  m_PrefabInstance: {fileID: 7181663280975555169}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27dd59cd9be544d2aa82895e5fd1dd51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
