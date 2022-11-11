@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 142666266}
   - component: {fileID: 142666272}
   - component: {fileID: 142666273}
+  - component: {fileID: 142666274}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -365,6 +366,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 903d4543fe8fd9e44aa94181db0e0566, type: 3}
   - {fileID: 8300000, guid: 39697f271cba7ac4a80754ce40308ec0, type: 3}
   randomAudios: []
+--- !u!114 &142666274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142666265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9232206fd8425493594c15f508f3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsVisibleCursor: 0
 --- !u!1 &263622005
 GameObject:
   m_ObjectHideFlags: 0
