@@ -21,7 +21,7 @@ public class MenuScript : MonoBehaviour
     
     void Start()
     {
-       //set the value for the textboxes 
+        //Cursor.visible = true; 
     }
 
    public void OnGameStart()
