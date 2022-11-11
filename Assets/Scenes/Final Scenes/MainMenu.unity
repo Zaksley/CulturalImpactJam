@@ -6190,9 +6190,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Game Design\r\n- Alisha Chugani\r\n- Bridget Kurr\r\n- Chico Silva\r\n-
-    Enzo Medina (3C)\r\n- Joel Palta\r\n- Victor Sassi\n- Yan Tibet\n\r\nProgramming\r\n-
-    Enzo Medina\r\n\r- Victor Sassi\n\nWriting\r\n- Alisha Chugani\r\r\n- Bridget
-    Kurr\r\n- Ema Purmensky\r\n- Yan Tibet\r\n"
+    Ema Purmensky\r\n- Enzo Medina (3C)\r\n- Joel Palta\r\n- Victor Sassi\n- Yan
+    Tibet\n\r\nProgramming\r\n- Enzo Medina\r\n\r- Victor Sassi\n\nWriting\r\n- Alisha
+    Chugani\r\r\n- Bridget Kurr\r\n- Ema Purmensky\r\n- Yan Tibet\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ebc5c06c254f1e4a9f2ba836d8a70c6, type: 2}
   m_sharedMaterial: {fileID: 4602467016912992584, guid: 6ebc5c06c254f1e4a9f2ba836d8a70c6, type: 2}
